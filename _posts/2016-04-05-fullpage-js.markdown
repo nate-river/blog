@@ -107,14 +107,15 @@ categories: jekyll update
 
   绑定菜单，设定的相关属性与anchors的值对应后，菜单可以控制滚动，默认值为 false
   可以设置为菜单的jquery选择器
-  ```html
+
+```html
   <ul id="fullpageMenu">
       <li data-menuanchor="page1"></li>
       <li data-menuanchor="page2"></li>
       <li data-menuanchor="page3"></li>
       <li data-menuanchor="page4"></li>
   </ul>
-  ```
+```
 
 * navigation
 
