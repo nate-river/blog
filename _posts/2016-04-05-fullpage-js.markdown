@@ -1,7 +1,6 @@
 ---
 layout: post
-title:  "fullPage.js"
-date:   2016-04-05 12:31:27 +0800
+title:  "全屏滚动插件fullpage"
 categories: jekyll update
 ---
 
