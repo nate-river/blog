@@ -2,7 +2,7 @@
   layout: post
   title: 正则表达式
   tags:
-  categories: jekyll update
+  categories:
 ---
 
 一句简单的话来概括：

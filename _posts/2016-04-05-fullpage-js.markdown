@@ -1,7 +1,8 @@
 ---
 layout: post
 title:  "全屏滚动插件fullpage"
-categories: jekyll update
+tags:
+categories:
 ---
 
 ###  配置项
