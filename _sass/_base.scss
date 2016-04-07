@@ -62,21 +62,6 @@ figcaption {
 
 
 
-/**
- * Lists
- */
-ul, ol {
-    margin-left: $spacing-unit;
-}
-
-li {
-    > ul,
-    > ol {
-         margin-bottom: 0;
-    }
-}
-
-
 
 /**
  * Headings
