@@ -4,7 +4,7 @@ title:  "全屏滚动插件fullpage"
 categories: jekyll update
 ---
 
-# [fullPage.js][full-page]配置项介绍
+###  配置项
 
 * sectionsColor
 
@@ -154,7 +154,7 @@ categories: jekyll update
   slide的选择器 默认为.slide.
 
 
-# fullPage.js 方法介绍
+### fullPage.js 方法介绍
 
 * moveSectionUp()
 
@@ -198,7 +198,7 @@ categories: jekyll update
 
   重新更新页面和尺寸，用于通过ajax请求后改变了页面结构之后，重建效果
 
-#  fullPage.js 回调函数
+###  fullPage.js 回调函数
 
 * afterLoad(anchorLink,index)
 
