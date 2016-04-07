@@ -65,6 +65,12 @@ Content in the first column | Content in the second column
 var reg = /someregularexpression/;
 //2.构造函数方式
 var reg = new RegExp('/someregularexpression/',g);
+
+var fn = function (x, y) {
+  return x * y;
+}
+var num = fn(3, 4);
+console.log(num);
 ```
 
 其中位于 `someregularexpression` 两侧的 `/` 字符为界定符
