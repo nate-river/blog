@@ -15,6 +15,12 @@
 
 安装 [lantern](https://github.com/getlantern/lantern)
 
+或者 .编辑 ~/.npmrc 加入下面内容
+
+```shell
+//采用国内镜像
+registry = http://registry.cnpmjs.org
+```
 
 ###  安装 cordova   ionic
 
@@ -87,4 +93,13 @@ ionic run android
 
 * jdk和环境变量设置
 * android sdk
-* andorid sdk 设置 以及进一步的安装
+* android sdk 设置 以及进一步的安装
+
+android sdk安装过程中注意 把代理服务器换成国内的,速度会快好多.
+
+```
+『Android SDK Manager - Settings』
+「HTTP Proxy Server」  =>   mirrors.neusoft.edu.cn
+「HTTP Proxy Port」    =>   80
+选中「Force https://... sources to be fetched using http://...」
+```
