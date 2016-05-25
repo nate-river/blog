@@ -115,14 +115,14 @@ $(function(){
 
 二. 使用 animation 结合fullpage 去制作动画
 
-*. 名字: fei  
-*. 时长: 3s
-*. 运动方式: ease
-*. 延迟: .5s
-*. 停留状态: both
-*. 方向: alternate（来回）
-*. 次数: infinite
-*. 运动状态: running || paused
+* 名字: fei  
+* 时长: 3s
+* 运动方式: ease
+* 延迟: .5s
+* 停留状态: both
+* 方向: alternate（来回）
+* 次数: infinite
+* 运动状态: running || paused
 
 ```css
 animation: fei .8s cubic-bezier(1,0,0,1) .5s both alternate infinite;
