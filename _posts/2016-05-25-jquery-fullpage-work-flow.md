@@ -95,3 +95,43 @@ $(function(){
     });
 });
 ```
+
+
+## 四.使用css结合js去制作页面中的动画
+
+一. 使用 transtion 结合fullpage 去制作动画
+
+```css
+  transition:transform .5s ease 1s, opacity .6s ease-in-out;
+  transform:rotateX() scale(0.3,0.3);
+  transform:rotateY()
+  transform:rotateZ()
+  transform:translate3d(30px,20px,0) rotateZ(34deg);
+```
+1. 要动的元素写到每一个section中
+2. 正常状态下是一种样子
+3. 当section有了 `active`, `fp-completely` 类之后是另一个样子
+4. 给要动的元素加上transition监测
+
+二. 使用 animation 结合fullpage 去制作动画
+
+```css
+animation: fei .8s cubic-bezier(1,0,0,1) .5s both alternate infinite;
+```
+---
+  名字: fei  
+  时长: 3s
+  运动方式: ease
+  延迟: .5s
+  停留状态: both
+  方向: alternate（来回）
+  次数: infinite
+  运动状态: running || paused
+---
+
+
+1. 要动的元素写到每一个section中
+2. 正常状态下采用一种动画（可选）
+3. 在sectio拥有active类的情况下采用另外一种动画
+4. 一些更复杂的情况 把动画预先写好  在配置项的onLeave afterLoad
+回调函数中通过添加类名的方式启动动画
