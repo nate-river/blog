@@ -122,7 +122,7 @@ $(function(){
 * 停留状态: both
 * 方向: alternate（来回）
 * 次数: infinite
-* 运动状态: running || paused
+* 运动状态: running  paused
 
 ```css
 animation: fei .8s cubic-bezier(1,0,0,1) .5s both alternate infinite;
