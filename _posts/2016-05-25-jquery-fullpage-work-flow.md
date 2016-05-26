@@ -1,6 +1,6 @@
 ---
   layout: post
-  title:  利用jquery fullpage 插件制作宣传页面的流程
+  title:  fullpage 插件制作宣传页面的流程
   tags:
   categories:
 ---
