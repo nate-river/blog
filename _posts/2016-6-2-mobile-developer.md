@@ -15,10 +15,7 @@
 * chrome  firefox  uc
 * safari
 
-在移动端可以放心使用 `html5` `css3`
-
-http://nate-river.github.io/css3
-https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5
+在移动端可以放心使用 [`html5`](https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5) [`css3`](http://nate-river.github.io/css3);
 
 Css3中的重点(工程)
 
@@ -79,17 +76,17 @@ bower + gulp + yoman
 
 3. bootstrap 百分比布局
 
-  ```html
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-8"></div>
-      <div class="col-xs-4">
-        <div class="row">
-          <div class="col-xs-12"></div>
-          <div class="col-xs-6"></div>
-          <div class="col-xs-6"></div>
-        </div>
+```html
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-8"></div>
+    <div class="col-xs-4">
+      <div class="row">
+        <div class="col-xs-12"></div>
+        <div class="col-xs-6"></div>
+        <div class="col-xs-6"></div>
       </div>
     </div>
   </div>
-  ```
+</div>
+```
