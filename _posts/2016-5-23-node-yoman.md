@@ -22,7 +22,7 @@
 
 在node.js这个运行环境中,并没有这样那样的限制,在这里,javascript成功变成了python,ruby,变成了一门`真正的语言`.
 
-windows下 node.js 的安装很简单,访问[`node.js官网`](node.js-url),下载安装包,默认安装就好.
+windows下 node.js 的安装很简单,访问[`node.js官网`](https://nodejs.org),下载安装包,默认安装就好.
 
 打开控制台测试是否安装成功
 ```sh
@@ -245,6 +245,3 @@ npm link
 ```
 
 随后就可以  `yo name` 了
-
-
-node.js-url : 'https://nodejs.org'
