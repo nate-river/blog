@@ -1,4 +1,10 @@
-# 移动端开发流程
+---
+  layout: post
+  title:  移动端开发流程
+  tags:
+  categories:
+---
+
 
 ## 基本的知识储备
 
