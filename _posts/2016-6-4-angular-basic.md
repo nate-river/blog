@@ -579,11 +579,11 @@ myapp.directive('tsTplcache', [function(){
 
 ## 14.其他
 
-*  ng-bind 解决页面元素闪烁问题
+*  ng-bind 解决网络不好的情下刷新页面会看到{{}}的问题
 
 *  一次绑定问题 {{:v.name}}
 
-*  $apply  $watch 解决一些监测问题
+* $apply  $watch 解决一些监测问题
 
   $socpe.$wacth()尽量少用
 
@@ -593,7 +593,7 @@ myapp.directive('tsTplcache', [function(){
 
   $scope.$apply()用在link函数中去启动angular脏检查机制，保障数据的同步
 
-*  其他问题
+* 其他问题
 
   使用了过滤器之后  ng-repeat 中的 $index 形同虚设
 
