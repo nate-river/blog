@@ -557,11 +557,11 @@ span.ng-enter-active{
 
   ```html
   <body ng-controller="mainCtrl">
-  <lunbo pics="pics" a="{{a}}">
-  <h1>this is a lunbo</h1>
-  </lunbo>
+    <lunbo pics="pics" a="{{a}}">
+      <h1>this is a lunbo</h1>
+    </lunbo>
   </body>
-  ```html
+  ```
 
   ```javascript
   var di = angular.module('di',[]);
@@ -600,7 +600,7 @@ span.ng-enter-active{
     }
   ]);
   ```
-  
+
 * 指令之controller属性
 
   生命独立的controller
