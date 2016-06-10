@@ -519,10 +519,29 @@ span.ng-enter-active{
 
 * 指令之terminal属性
 
-  指令终止属性
+  编译器是否在该指令之后继续编译其他指令
 
 * 指令之template属性
 
+  ```html
+  <!--注意这里 type 为  text/ng-template 的script标签-->
+  <script  type="text/ng-template" id="tab-bar">
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  </script>
+  var myapp = angular.module('myapp',[]);
+  myapp.directive('tab-bar',[
+    function(){
+      return {
+        restrict:"AE",
+        template:tab-bar,  //上面那个script标签的id
+      }
+    }
+  ])
+  ```
   指定一个字符串或者一个<script type="template/javascript" id="tem"></script>的id
   或者templateCache中的某个名字来作为指令的模板
 
@@ -534,13 +553,61 @@ span.ng-enter-active{
 
   声明独立的作用域
 
+  例子.一个轮播图指令,拥有自己独立的作用域,但是需要从父作用域中获取需要轮播的图片地址
+
+  ```html
+  <body ng-controller="mainCtrl">
+  <lunbo pics="pics" a="{{a}}">
+  <h1>this is a lunbo</h1>
+  </lunbo>
+  </body>
+  ```html
+
+  ```javascript
+  var di = angular.module('di',[]);
+  di.controller('mainCtrl',[
+  '$scope',
+  function($scope){
+    $scope.a = 12;
+    $scope.b = 13;
+    $scope.pics = [
+    {title:1},
+    {title:2},
+    {title:3}
+    ]
+    $scope.addPic = function(){
+      $scope.pics.push({title:4});
+    }
+  }
+  ])
+
+  di.directive('lunbo', [
+  function(){
+    return {
+      restrict:'AE',
+      replace:true,
+      transclude:true,
+      template:'<div> {{b}} <div ng-transclude></div> <ul> <li ng-repeat="v in pics  track by $index"> {{v.title}} </li> </ul> </div>',
+      scope:{
+        a:'@',
+        pics:'=',
+        addPic:'&'
+        },
+        controller:function($scope){
+          console.log($scope);
+        }
+      }
+    }
+  ]);
+  ```
+  
 * 指令之controller属性
 
   生命独立的controller
 
 * 指令之require属性
 
-  是否结合其他指令
+  设置要注入当前指令链接函数中的其他指令的控制器
 
 * 指令之restrict 属性
 
@@ -556,9 +623,13 @@ span.ng-enter-active{
 
 * 指令之compile属性
 
+  定义编译函数，编译函数会操作原始DOM，而且会在没有提供link设置的情况下创建链接函数
+
 * 指令之link属性
 
   在指令编译的最后阶段会调用一次，通常在这里注册事件，操作dom
+
+  如果指令了compile，则link不生效
 
 ## 13.利用templateCache来缓存页面
 
@@ -579,9 +650,9 @@ myapp.directive('tsTplcache', [function(){
 
 ## 14.其他
 
-*  ng-bind 解决网络不好的情下刷新页面会看到{{}}的问题
+*  ng-bind 解决网络不好的情下刷新页面会看到`{{}}`的问题
 
-*  一次绑定问题 {{:v.name}}
+*  一次绑定问题 `{{:v.name}}`
 
 * $apply  $watch 解决一些监测问题
 
