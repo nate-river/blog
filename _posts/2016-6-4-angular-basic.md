@@ -405,7 +405,7 @@ myapp.factory('User',[
         }).error(function(data, status, headers, config){
           deferred.reject(data);
         })
-        return deferred;
+        return deferred.promise;
       }
     }
     return User;
