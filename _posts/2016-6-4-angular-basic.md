@@ -669,3 +669,27 @@ myapp.directive('tsTplcache', [function(){
   使用了过滤器之后  ng-repeat 中的 $index 形同虚设
 
   需要在数据中使用id来标识一条唯一的数据
+
+## 15.背后的原理
+
+* angular中的mvvm模式
+
+  M(model) V(view) C(contrller)
+
+  `Model`代表数据最原始的样子和逻辑以及对数据的操作
+
+  > 在web页面中,大部分model都是来自Ajax服务器返回的数据或者全局配置对象. angular中的Service正是封装和处理这些与Model相关的业务逻辑的最佳方式。
+
+  `View` 为是数据最终会呈现的样子
+
+  > 在angular中 普通的html结构 和 组件型指令就是 view
+
+  `Controller`负责model对象的初始化.
+
+  > 在angular中 controller 将调用一个或多个Service来获取模型数据。 并把他放在$scope上,controller也负责提供那些写在view上的装饰性指令所你调用的函数等。
+
+  在angualar中因为`Controller`和 `View` 之间通过 $scope 的数据双向绑定关系。一般angular团队不把自己称为一个`MVC`框架，而是 MVVM (model-view-viewModel)
+
+* 作用域就像javascript的函数作用域，是层层嵌套的
+
+* $scope.$apply 可以启动脏检查机制，会在内部调用$digest去查看哪些变量发生了变化，以决定是更新$scope能还是更新页面显示。大部分情况下我们不需要手动调用它是因为在angular的各个服务，控制器中都自动对他进行了调用。如果用原生的方式写个setTimeOut去改变$scope身上的某个变量，就会看到view并不会更新，这时候就需要手动调用$apply.在link函数中也是如此。
