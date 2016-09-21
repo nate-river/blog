@@ -1,6 +1,6 @@
 ---
   layout: post
-  title:  angularjs基础
+  title:  Angularjs基础
   tags:
   categories:
 ---

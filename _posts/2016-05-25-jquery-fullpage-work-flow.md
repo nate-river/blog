@@ -1,6 +1,6 @@
 ---
   layout: post
-  title:  fullpage 插件制作宣传页面的流程
+  title:  Fullpage 插件制作宣传页面的流程
   tags:
   categories:
 ---

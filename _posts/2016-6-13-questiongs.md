@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "准备"
+title:  "一些题目"
 ---
 # 面/笔试准备方向
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "jQuery全屏滚动插件fullpage"
+title:  "Fullpage 插件配置项"
 tags:
 categories:
 ---
