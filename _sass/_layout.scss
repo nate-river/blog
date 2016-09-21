@@ -181,6 +181,12 @@
 
     > li {
         margin-bottom: $spacing-unit;
+
+      > h2 {
+        margin-bottom:0;
+        padding-bottom:15px;
+        border-bottom:1px solid #e8e8e8;
+      }
     }
 }
 
