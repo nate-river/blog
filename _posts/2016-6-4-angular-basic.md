@@ -7,13 +7,12 @@
 
 ## 1.安装引用
 
-```sh
-bower install angular
-```
+在 http://www.bootcdn.cn/ 中搜索 `angular` 下载
 
 ```html
 <script src="pathto/angular.js"></script>
 ```
+
 
 ## 2.简单使用
 
