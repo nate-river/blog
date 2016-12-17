@@ -673,13 +673,13 @@ myapp.directive('tsTplcache', [function(){
 
 * angular中的mvvm模式
 
-  M(model) V(view) C(contrller)
+  M(model) V(view) C(controller)
 
   `Model`代表数据最原始的样子和逻辑以及对数据的操作
 
   > 在web页面中,大部分model都是来自Ajax服务器返回的数据或者全局配置对象. angular中的Service正是封装和处理这些与Model相关的业务逻辑的最佳方式。
 
-  `View` 为是数据最终会呈现的样子
+  `View` 是数据最终会呈现的样子
 
   > 在angular中 普通的html结构 和 组件型指令就是 view
 
@@ -687,7 +687,7 @@ myapp.directive('tsTplcache', [function(){
 
   > 在angular中 controller 将调用一个或多个Service来获取模型数据。 并把他放在$scope上,controller也负责提供那些写在view上的装饰性指令所你调用的函数等。
 
-  在angualar中因为`Controller`和 `View` 之间通过 $scope 的数据双向绑定关系。一般angular团队不把自己称为一个`MVC`框架，而是 MVVM (model-view-viewModel)
+  在angular中因为`Controller`和 `View` 之间通过 $scope 的数据双向绑定关系。一般angular团队不把自己称为一个`MVC`框架，而是 MVVM (model-view-view-model)
 
 * 作用域就像javascript的函数作用域，是层层嵌套的
 
