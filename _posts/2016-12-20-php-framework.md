@@ -146,7 +146,7 @@ class uek
 框架路由类 `/core/lib/route.php`
 
 ```php
-<?php  
+<?php
 namespace core\lib;
 class route
 {
