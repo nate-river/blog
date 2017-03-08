@@ -157,3 +157,29 @@ process.on('uncaughtException', (ex)=> {
   console.log('error');
 });
 ```
+
+## react项目中使用fetch
+
+```javascript
+// npm install whatwg-fetch --save
+// 在html页面中引入whatwg-fetch.js
+
+// fetch上传文件
+var input = document.querySelector('input[type="file"]')
+
+var data = new FormData()
+data.append('file', input.files[0])
+data.append('user', 'hubot')
+
+fetch('/avatars', {
+  method: 'POST',
+  body: data
+})
+// fetch提交表单
+var form = document.querySelector('form')
+
+fetch('/users', {
+  method: 'POST',
+  body: new FormData(form)
+})
+```
