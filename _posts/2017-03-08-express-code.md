@@ -10,10 +10,13 @@ categories:
 
 ```javascript
 const bodyParser = require('body-parser');
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended: false}));
+
 // parse application/json
 app.use(bodyParser.json());
+
 app.post('/',(req,res)=>{
   console.log(req.body);
 })
@@ -23,14 +26,17 @@ app.post('/',(req,res)=>{
 
 ```javascript
 const session = require('express-session');
+
 app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true
 }));
+
 app.get('/logincheck',(req,res)=>{
   req.session.login = true;
 })
+
 // 中间件
 app.use('/admin',(req,res,next)=>{
   if(req.seesion.login){
@@ -44,24 +50,23 @@ app.use('/admin',(req,res,next)=>{
 ## 上传文件
 
 ```javascript
-const fs = require('fs');
-const async = require('async');
-const multer = require('multer');
-const upload = multer({dest: 'uploads/'});
-app.post('/upload', upload.single('wangEditorH5File'), function (req, res) {
-  async.series([
-    function (callback) {
-      fs.createReadStream(req.file.path).pipe(fs.createWriteStream('public/imgs/' + req.file.originalname));
-      callback(null);
-    },
-    function (callback) {
-      fs.unlink(path.resolve(req.file.path));
-      callback(null);
-    }
-  ], function () {
-    res.end('/imgs/' + req.file.originalname);
-  });
 
+
+const os = require('os');
+const fs = require('fs');
+const multer = require('multer');    // multipart/form-data
+const upload = multer({dest: os.tmpdir()});
+
+app.post('/upload', upload.single('f'), function (req, res) {
+   console.log( req.body )
+   let f = req.file;
+    fs.rename(
+      f.path,
+      './public/upload/' + f.filename + path.extname(f.originalname),
+      ()=> {
+        res.end('ok');
+      }
+    );
 });
 ```
 
@@ -126,29 +131,6 @@ hash.update('123456');
 console.log(hash.digest('hex'));
 ```
 
-## mysql封装
-
-```javascript
-const mysql = require('mysql');
-const pool = mysql.createPool({
-  connectionLimit: 1000,
-  host: 'localhost',
-  user: 'root',
-  password: 'root',
-  database: 'music'
-});
-function query(sql, arr, fn) {
-  pool.getConnection((err, con)=> {
-    con.query(sql, arr, (err, res)=> {
-      con.release();
-      fn(err, res);
-    })
-  })
-}
-module.exports = {
-  query: query
-};
-```
 
 ## 防止意外退出
 
@@ -158,11 +140,10 @@ process.on('uncaughtException', (ex)=> {
 });
 ```
 
-## react项目中使用fetch
+## 使用fetch
 
 ```javascript
 // npm install whatwg-fetch --save
-// 在html页面中引入whatwg-fetch.js
 
 // fetch上传文件
 var input = document.querySelector('input[type="file"]')
@@ -172,14 +153,22 @@ data.append('file', input.files[0])
 data.append('user', 'hubot')
 
 fetch('/avatars', {
+  credentials: "same-origin",
   method: 'POST',
   body: data
 })
+
 // fetch提交表单
 var form = document.querySelector('form')
 
 fetch('/users', {
+  credentials: "same-origin",
   method: 'POST',
   body: new FormData(form)
+})
+
+// fetch 收取cookie
+fetch('/users', {
+  credentials: "same-origin",
 })
 ```
