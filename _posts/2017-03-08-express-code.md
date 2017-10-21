@@ -70,58 +70,6 @@ app.post('/upload', upload.single('f'), function (req, res) {
 });
 ```
 
-## react富文本编辑器组件
-
-```html
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-  <link rel="stylesheet" href="/css/wangEditor.min.css">
-</head>
-<body>
-<div id="page"></div>
-<script src="js/jquery-2.2.1.js"></script>
-<script src="js/wangEditor.js"></script>
-<script src="/js/admin.js"></script>
-</body>
-</html>
-```
-
-```javascript
-const React = require('react');
-const ReactDOM = require('react-dom');
-class Editor extends React.Component {
-  constructor(props) {
-    super(props);
-    this.getContents = this.getContents.bind(this);
-  }
-
-  componentDidMount() {
-    this.editor = new window.wangEditor(this.el);
-    this.editor.config.uploadImgUrl = '/upload';
-    this.editor.create();
-    // 初始化内容
-    this.editor.$txt.html('<div>this is a a</div>');
-  }
-
-  getContents() {
-    console.log(this.editor.$txt.html());
-  }
-
-  render() {
-    return (
-      <div>
-        <div contentEditable="true" style={{height:300}} ref={(el)=>{this.el = el}}></div>
-        <div onClick={this.getContents}>获取内容</div>
-      </div>
-    );
-  }
-}
-ReactDOM.render(<Editor/>, document.querySelector('#page'));
-```
-
-
 ## 创建md5
 
 ```javascript
@@ -171,4 +119,55 @@ fetch('/users', {
 fetch('/users', {
   credentials: "same-origin",
 })
+```
+
+## react富文本编辑器组件
+
+```html
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="/css/wangEditor.min.css">
+</head>
+<body>
+<div id="page"></div>
+<script src="js/jquery-2.2.1.js"></script>
+<script src="js/wangEditor.js"></script>
+<script src="/js/admin.js"></script>
+</body>
+</html>
+```
+
+```javascript
+const React = require('react');
+const ReactDOM = require('react-dom');
+class Editor extends React.Component {
+  constructor(props) {
+    super(props);
+    this.getContents = this.getContents.bind(this);
+  }
+
+  componentDidMount() {
+    this.editor = new window.wangEditor(this.el);
+    this.editor.config.uploadImgUrl = '/upload';
+    this.editor.create();
+    // 初始化内容
+    this.editor.$txt.html('<div>this is a a</div>');
+  }
+
+  getContents() {
+    console.log(this.editor.$txt.html());
+  }
+
+  render() {
+    return (
+      <div>
+        <div contentEditable="true" style={{height:300}} ref={(el)=>{this.el = el}}></div>
+        <div onClick={this.getContents}>获取内容</div>
+      </div>
+    );
+  }
+}
+ReactDOM.render(<Editor/>, document.querySelector('#page'));
 ```
